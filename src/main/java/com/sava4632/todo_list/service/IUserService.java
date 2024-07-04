@@ -6,6 +6,9 @@ import java.util.List;
 import com.sava4632.todo_list.model.dto.UserDto;
 import com.sava4632.todo_list.model.entity.User;
 
+/**
+ * Interface to define the methods to be implemented by the User service
+ */
 public interface IUserService {
 
     /**
@@ -15,9 +18,9 @@ public interface IUserService {
     List<User> listAll();
 
     /**
-     * Save user to database
-     * @param userDto User object to save
-     * @return User object saved
+     * Save or update user to database
+     * @param userDto User object to save or update
+     * @return User object saved or updated
      */
     User save(UserDto userDto);
 

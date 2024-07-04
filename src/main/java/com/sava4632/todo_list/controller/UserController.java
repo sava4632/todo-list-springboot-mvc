@@ -1,8 +1,6 @@
 package com.sava4632.todo_list.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -22,6 +20,9 @@ import com.sava4632.todo_list.model.entity.User;
 import com.sava4632.todo_list.model.payload.MessageResponse;
 import com.sava4632.todo_list.service.IUserService;
 
+/**
+ * Class to represent a user controller to handle user requests
+ */
 @RestController // Spring annotation to mark this class as a controller
 @RequestMapping("/api/v1") // Spring annotation to map the URL to this controller
 public class UserController {
@@ -31,6 +32,7 @@ public class UserController {
 
     /**
      * Show all users from database
+     * 
      * @return List of all users
      */
     @GetMapping("/users")
@@ -38,20 +40,25 @@ public class UserController {
         List<User> users = userService.listAll();
 
         if (users == null || users.isEmpty()) {
-            return new ResponseEntity<>(MessageResponse.builder()
-                    .message("Users not found")
-                    .object(null)
-                    .build(), HttpStatus.OK);
+            return new ResponseEntity<>(
+                    MessageResponse.builder()
+                            .message("Users not found")
+                            .object(null)
+                            .build(),
+                    HttpStatus.OK);
         }
 
-        return new ResponseEntity<>(MessageResponse.builder()
-                .message("Users found successfully")
-                .object(users)
-                .build(), HttpStatus.OK);
+        return new ResponseEntity<>(
+                MessageResponse.builder()
+                        .message("Users found successfully")
+                        .object(users)
+                        .build(),
+                HttpStatus.OK);
     }
 
     /**
      * Create user in database
+     * 
      * @param userDto User object to create
      * @return User object created
      */
@@ -61,27 +68,32 @@ public class UserController {
         try {
             userSave = userService.save(userDto);
 
-            return new ResponseEntity<>(MessageResponse.builder()
-                    .message("User created successfully")
-                    .object(UserDto.builder()
-                            .id(userSave.getId())
-                            .username(userSave.getUsername())
-                            .password(userDto.getPassword())
-                            .email(userSave.getEmail())
-                            .build())
-                    .build(), HttpStatus.CREATED);
+            return new ResponseEntity<>(
+                    MessageResponse.builder()
+                            .message("User created successfully")
+                            .object(UserDto.builder()
+                                    .id(userSave.getId())
+                                    .username(userSave.getUsername())
+                                    .password(userDto.getPassword())
+                                    .email(userSave.getEmail())
+                                    .build())
+                            .build(),
+                    HttpStatus.CREATED);
         } catch (DataAccessException e) {
-            return new ResponseEntity<>(MessageResponse.builder()
-                    .message(e.getMessage())
-                    .object(null)
-                    .build(), HttpStatus.METHOD_NOT_ALLOWED);
+            return new ResponseEntity<>(
+                    MessageResponse.builder()
+                            .message(e.getMessage())
+                            .object(null)
+                            .build(),
+                    HttpStatus.BAD_REQUEST);
         }
     }
 
     /**
      * Update user by id from database
+     * 
      * @param userDto User object to update
-     * @param id User id to update
+     * @param id      User id to update
      * @return User object updated
      */
     @PutMapping("/user/{id}")
@@ -93,33 +105,39 @@ public class UserController {
                 userDto.setId(id);
                 userUpdate = userService.save(userDto);
 
-                return new ResponseEntity<>(MessageResponse.builder()
-                        .message("User updated successfully")
-                        .object(UserDto.builder()
-                                .id(userUpdate.getId())
-                                .username(userUpdate.getUsername())
-                                .password(userUpdate.getPassword())
-                                .email(userUpdate.getEmail())
-                                .build())
-                        .build(), HttpStatus.CREATED);
-            }
-            else{
-                return new ResponseEntity<>(MessageResponse.builder()
-                    .message("User not found")
-                    .object(null)
-                    .build(), HttpStatus.NOT_FOUND);
+                return new ResponseEntity<>(
+                        MessageResponse.builder()
+                                .message("User updated successfully")
+                                .object(UserDto.builder()
+                                        .id(userUpdate.getId())
+                                        .username(userUpdate.getUsername())
+                                        .password(userUpdate.getPassword())
+                                        .email(userUpdate.getEmail())
+                                        .build())
+                                .build(),
+                        HttpStatus.CREATED);
+            } else {
+                return new ResponseEntity<>(
+                        MessageResponse.builder()
+                                .message("User not found")
+                                .object(null)
+                                .build(),
+                        HttpStatus.NOT_FOUND);
             }
 
         } catch (DataAccessException e) {
-            return new ResponseEntity<>(MessageResponse.builder()
-                    .message(e.getMessage())
-                    .object(null)
-                    .build(), HttpStatus.METHOD_NOT_ALLOWED);
+            return new ResponseEntity<>(
+                    MessageResponse.builder()
+                            .message(e.getMessage())
+                            .object(null)
+                            .build(),
+                    HttpStatus.BAD_REQUEST);
         }
     }
 
     /**
      * Delete user by id from database
+     * 
      * @param id User id to delete
      * @return User object deleted
      */
@@ -130,10 +148,12 @@ public class UserController {
             userService.delete(userDelete);
             return new ResponseEntity<>(userDelete, HttpStatus.NO_CONTENT);
         } catch (DataAccessException e) {
-            return new ResponseEntity<>(MessageResponse.builder()
-                    .message(e.getMessage())
-                    .object(null)
-                    .build(), HttpStatus.METHOD_NOT_ALLOWED);
+            return new ResponseEntity<>(
+                    MessageResponse.builder()
+                            .message(e.getMessage())
+                            .object(null)
+                            .build(),
+                    HttpStatus.METHOD_NOT_ALLOWED);
         }
     }
 
@@ -155,30 +175,35 @@ public class UserController {
      * }
      */
 
-     /**
-      * Show user by id from database 
-      * @param id User id to find
-      * @return User object found by id
-      */
+    /**
+     * Show user by id from database
+     * 
+     * @param id User id to find
+     * @return User object found by id
+     */
     @GetMapping("/user/{id}")
     public ResponseEntity<?> showById(@PathVariable Integer id) {
         User user = userService.findById(id);
 
         if (user == null) {
-            return new ResponseEntity<>(MessageResponse.builder()
-                    .message("User not found")
-                    .object(null)
-                    .build(), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(
+                    MessageResponse.builder()
+                            .message("User not found")
+                            .object(null)
+                            .build(),
+                    HttpStatus.NOT_FOUND);
         }
 
-        return new ResponseEntity<>(MessageResponse.builder()
-                .message("User found successfully")
-                .object(UserDto.builder()
-                        .id(user.getId())
-                        .username(user.getUsername())
-                        .password(user.getPassword())
-                        .email(user.getEmail())
-                        .build())
-                .build(), HttpStatus.OK);
+        return new ResponseEntity<>(
+                MessageResponse.builder()
+                        .message("User found successfully")
+                        .object(UserDto.builder()
+                                .id(user.getId())
+                                .username(user.getUsername())
+                                .password(user.getPassword())
+                                .email(user.getEmail())
+                                .build())
+                        .build(),
+                HttpStatus.OK);
     }
 }

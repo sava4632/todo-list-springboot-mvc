@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 
+/**
+ * Class to represent a message response from the server
+ */
 @Data
 @ToString
 @Builder

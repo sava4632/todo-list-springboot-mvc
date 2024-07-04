@@ -6,6 +6,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
 
+/**
+ * Class to represent a user data transfer object (DTO)
+ */
 @Data
 @ToString
 @Builder

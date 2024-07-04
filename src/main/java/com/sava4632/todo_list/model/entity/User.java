@@ -1,6 +1,8 @@
 package com.sava4632.todo_list.model.entity;
 
 
+import java.io.Serializable;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,6 +15,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+/*
+ * User entity class to represent the user table in the database
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,7 +25,7 @@ import lombok.ToString;
 @Builder
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
