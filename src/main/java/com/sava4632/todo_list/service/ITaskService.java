@@ -3,7 +3,6 @@ package com.sava4632.todo_list.service;
 import java.util.List;
 
 import com.sava4632.todo_list.model.dto.TaskDto;
-import com.sava4632.todo_list.model.dto.UserDto;
 import com.sava4632.todo_list.model.entity.Task;
 import com.sava4632.todo_list.model.entity.User;
 

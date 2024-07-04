@@ -7,9 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.sava4632.todo_list.model.dao.TaskDao;
-import com.sava4632.todo_list.model.dao.UserDao;
 import com.sava4632.todo_list.model.dto.TaskDto;
-import com.sava4632.todo_list.model.dto.UserDto;
 import com.sava4632.todo_list.model.entity.Task;
 import com.sava4632.todo_list.model.entity.User;
 import com.sava4632.todo_list.service.ITaskService;
@@ -19,9 +17,6 @@ public class TaskImplService implements ITaskService{
 
     @Autowired
     private TaskDao taskDao;
-
-    @Autowired
-    private UserDao userDao;
 
     /**
      * List all tasks from database
