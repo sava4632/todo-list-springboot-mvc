@@ -42,4 +42,11 @@ public interface IUserService {
      * @return true if user exists, false otherwise
      */
     boolean existsById(Integer id);
+
+    /**
+     * Find user by email
+     * @param email the email by which to search for the user
+     * @return User object found by email
+     */
+    User findByEmail(String email);
 }

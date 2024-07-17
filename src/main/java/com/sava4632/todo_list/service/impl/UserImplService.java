@@ -79,4 +79,15 @@ public class UserImplService implements IUserService{
     public List<User> listAll() {
         return (List<User>) userDao.findAll();
     }
+
+    /**
+     * Search for a user in the database by their email
+     * @param email the email by which to search for the user
+     * @return user found | null
+     */
+    @Transactional(readOnly = true)
+    @Override
+    public User findByEmail(String email) {
+        return userDao.findByEmail(email);
+    }
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -174,6 +175,43 @@ public class UserController {
      * }
      * }
      */
+
+     @CrossOrigin(origins = "http://localhost:4200")
+     @PostMapping("/auth/login")
+     public  ResponseEntity<?> authenticateUser(@RequestBody UserDto userDto) {
+        User user = null;
+        try {
+                user = userService.findByEmail(userDto.getEmail());
+
+                if (user == null || !userDto.getPassword().equals(user.getPassword())) {
+                        return new ResponseEntity<>( 
+                                MessageResponse.builder()
+                                        .message("Invalid email or password")
+                                        .object(null)
+                                        .build()
+                                , HttpStatus.UNAUTHORIZED);
+                }
+
+                return new ResponseEntity<>(
+                        MessageResponse.builder()
+                                .message("Login successful")
+                                .object(UserDto.builder()
+                                        .id(user.getId())
+                                        .username(user.getUsername())
+                                        .email(user.getEmail())
+                                        .password(user.getPassword())
+                                        .build())
+                                .build(),
+                        HttpStatus.OK);
+        } catch (Exception e) {
+                return new ResponseEntity<>(
+                    MessageResponse.builder()
+                            .message("An error occurred during authentication")
+                            .object(null)
+                            .build(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+     }
 
     /**
      * Show user by id from database
