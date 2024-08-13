@@ -63,7 +63,7 @@ public class UserController {
      * @param userDto User object to create
      * @return User object created
      */
-    @PostMapping("/user")
+    @PostMapping("/user/register")
     public ResponseEntity<?> create(@RequestBody UserDto userDto) {
         User userSave = null;
         try {
@@ -81,6 +81,7 @@ public class UserController {
                             .build(),
                     HttpStatus.CREATED);
         } catch (DataAccessException e) {
+            //TODO: Enviar una respuesta diferente al usuario dependiendo el tipo de error
             return new ResponseEntity<>(
                     MessageResponse.builder()
                             .message(e.getMessage())
@@ -176,8 +177,8 @@ public class UserController {
      * }
      */
 
-     @CrossOrigin(origins = "http://localhost:4200")
-     @PostMapping("/auth/login")
+     //@CrossOrigin(origins = "http://localhost:4200")
+     @PostMapping("/user/login")
      public  ResponseEntity<?> authenticateUser(@RequestBody UserDto userDto) {
         User user = null;
         try {

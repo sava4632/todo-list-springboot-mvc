@@ -15,6 +15,12 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true);
+
+//        registry.addMapping("/**")
+//                .allowedOrigins("*") // Permite todos los orígenes
+//                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Métodos permitidos
+//                .allowedHeaders("*") // Permite todos los encabezados
+//                .allowCredentials(false); // Las credenciales no se permiten si se usa "*"
     }
 }
 

@@ -35,7 +35,7 @@ public class Task implements Serializable{
     private String title;
     private String description;
     @Column(name = "completed")
-    private Boolean isComplete;
+    private Boolean isCompleted;
     @Column(name = "due_date")
     private LocalDate dueDate;
 

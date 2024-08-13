@@ -40,7 +40,7 @@ public class TaskImplService implements ITaskService{
                 .id(taskDto.getId())
                 .title(taskDto.getTitle())
                 .description(taskDto.getDescription())
-                .isComplete(taskDto.getIsCompleted())
+                .isCompleted(taskDto.getIsCompleted())
                 .dueDate(taskDto.getDueDate())
                 .user(taskDto.getUser())
                 .build();
@@ -71,7 +71,7 @@ public class TaskImplService implements ITaskService{
 
     /**
      * List all tasks by user id from database
-     * @param userDto User object to list tasks
+     * @param user User object to list tasks
      * @return List of tasks found by user id
      */
     @Transactional(readOnly = true)
