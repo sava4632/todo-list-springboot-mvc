@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.sava4632.todo_list.TodoListApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.88 s -- in com.sava4632.todo_list.TodoListApplicationTests
