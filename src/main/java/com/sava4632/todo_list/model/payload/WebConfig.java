@@ -10,11 +10,11 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(@NonNull CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins("https://todo-list-angular-production.up.railway.app")
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowedHeaders("*")
-                .allowCredentials(true);
+//        registry.addMapping("/**")
+//                .allowedOrigins("https://todo-list-angular-production.up.railway.app")
+//                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+//                .allowedHeaders("*")
+//                .allowCredentials(true);
 
 //        registry.addMapping("/**")
 //                .allowedOrigins("http://localhost:4200", "https://sava4632.github.io")
@@ -28,11 +28,11 @@ public class WebConfig implements WebMvcConfigurer {
 //                .allowedHeaders("*")
 //                .allowCredentials(true);
 
-//        registry.addMapping("/**")
-//                .allowedOrigins("*") // Permite todos los orígenes
-//                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Métodos permitidos
-//                .allowedHeaders("*") // Permite todos los encabezados
-//                .allowCredentials(false); // Las credenciales no se permiten si se usa "*"
+        registry.addMapping("/**")
+                .allowedOrigins("*") // Permite todos los orígenes
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Métodos permitidos
+                .allowedHeaders("*") // Permite todos los encabezados
+                .allowCredentials(false); // Las credenciales no se permiten si se usa "*"
     }
 }
 
