@@ -29,10 +29,11 @@ public class WebConfig implements WebMvcConfigurer {
 //                .allowCredentials(true);
 
         registry.addMapping("/**")
-                .allowedOrigins("*") // Permite todos los orígenes
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Métodos permitidos
-                .allowedHeaders("*") // Permite todos los encabezados
-                .allowCredentials(false); // Las credenciales no se permiten si se usa "*"
+                .allowedOrigins("https://todo-list-angular-production.up.railway.app")
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true)
+                .exposedHeaders("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials");
     }
 }
 
