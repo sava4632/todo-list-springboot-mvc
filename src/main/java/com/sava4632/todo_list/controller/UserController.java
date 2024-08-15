@@ -177,7 +177,7 @@ public class UserController {
      * }
      */
 
-     @CrossOrigin(origins = "http://https://todo-list-angular-production.up.railway.app")
+     //@CrossOrigin(origins = "http://localhost:4200")
      @PostMapping("/user/login")
      public  ResponseEntity<?> authenticateUser(@RequestBody UserDto userDto) {
         User user = null;
