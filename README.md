@@ -17,3 +17,16 @@ Este es el backend de la aplicación Lista de Tareas, desarrollado con Spring Bo
 - PostgreSQL
 - Hibernate
 - REST API
+
+### Requisitos
+- **Java**: Versión 11 o superior
+- **Maven**: Versión 3.6 o superior
+- **PostgreSQL**: Base de datos para almacenamiento persistente
+
+### Instalación y Configuración
+
+1. **Clonar el Repositorio**
+
+   ```bash
+   git clone <enlace-al-repositorio-backend>
+   cd <nombre-del-repositorio-backend>
