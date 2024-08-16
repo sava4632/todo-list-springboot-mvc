@@ -177,7 +177,7 @@ public class UserController {
      * }
      */
 
-    @CrossOrigin(origins = "https://todolistsava4632.netlify.app")
+    @CrossOrigin(origins = "https://todolist-sava4632.netlify.app")
      @PostMapping("/user/login")
      public  ResponseEntity<?> authenticateUser(@RequestBody UserDto userDto) {
         User user = null;
