@@ -29,7 +29,7 @@ public class WebConfig implements WebMvcConfigurer {
 //                .allowCredentials(true);
 
         registry.addMapping("/**")
-                .allowedOrigins("https://todo-list-angular-production.up.railway.app")
+                .allowedOrigins("https://todo-list-angular-production.up.railway.app","https://todolistsava4632.netlify.app/")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowedHeaders("*")
                 .allowCredentials(true)
