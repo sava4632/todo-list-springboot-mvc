@@ -9,8 +9,8 @@ Este es el backend de la aplicación Lista de Tareas, desarrollado con Spring Bo
 - CORS configurado para permitir el acceso desde el frontend
 
 ### Enlaces Importantes
-- **Frontend**: [Repositorio del Frontend (Angular)](https://github.com/tu-usuario/frontend-repo)
-- **Aplicación en Producción**: [Todo List en Producción](https://github.com/sava4632/todo-list-angular)
+- **Frontend**: [Repositorio del Frontend (Angular)](https://github.com/sava4632/todo-list-angular)
+- **Aplicación en Producción**: [Todo List en Producción](https://todolist-sava4632.netlify.app/)
 
 ### Tecnologías Utilizadas
 - Spring Boot
